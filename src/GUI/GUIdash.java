@@ -31,10 +31,16 @@ public class GUIdash extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jbGenerar = new javax.swing.JButton();
+        jRadioGraficaTiendasXAño = new javax.swing.JRadioButton();
+        jRadioTerritorialesNacionales = new javax.swing.JRadioButton();
+        jRadioEstados = new javax.swing.JRadioButton();
+        jRadioEntidadesObligadas = new javax.swing.JRadioButton();
+        jRadioRamaEntidad = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
 
@@ -63,22 +69,85 @@ public class GUIdash extends javax.swing.JFrame {
             }
         });
 
+        jRadioGraficaTiendasXAño.setText("Tiendas por años");
+        jRadioGraficaTiendasXAño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioGraficaTiendasXAñoActionPerformed(evt);
+            }
+        });
+
+        jRadioTerritorialesNacionales.setText("Cantidad territoriales y nacionales");
+        jRadioTerritorialesNacionales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioTerritorialesNacionalesActionPerformed(evt);
+            }
+        });
+
+        jRadioEstados.setText("Estados de las compras");
+        jRadioEstados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioEstadosActionPerformed(evt);
+            }
+        });
+
+        jRadioEntidadesObligadas.setText("Entidades obligadas a usar tiendas vituales");
+        jRadioEntidadesObligadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioEntidadesObligadasActionPerformed(evt);
+            }
+        });
+
+        jRadioRamaEntidad.setText("Cantidad por ramas de las entidades");
+        jRadioRamaEntidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioRamaEntidadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jbGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(232, 232, 232)
+                        .addComponent(jbGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jRadioEstados))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jRadioGraficaTiendasXAño, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioTerritorialesNacionales, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jRadioEntidadesObligadas))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jRadioRamaEntidad)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(88, 88, 88)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 510, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioGraficaTiendasXAño)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioEstados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioTerritorialesNacionales)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioEntidadesObligadas, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioRamaEntidad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 311, Short.MAX_VALUE)
                 .addComponent(jbGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
         );
@@ -129,15 +198,34 @@ public class GUIdash extends javax.swing.JFrame {
 
     private void jbGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGenerarActionPerformed
         
-        mostrarGraficoTorta1();
-        mostrarGraficoBarras1();
-        mostrarGraficoArea1();
-        mostrarGraficoLineal();
-        mostrarGrafico();
-        
         pack();
         repaint();
     }//GEN-LAST:event_jbGenerarActionPerformed
+
+    private void jRadioGraficaTiendasXAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioGraficaTiendasXAñoActionPerformed
+        mostrarGraficoTorta1();       
+        
+    }//GEN-LAST:event_jRadioGraficaTiendasXAñoActionPerformed
+
+    private void jRadioTerritorialesNacionalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioTerritorialesNacionalesActionPerformed
+        mostrarGraficoLineal();
+        
+    }//GEN-LAST:event_jRadioTerritorialesNacionalesActionPerformed
+
+    private void jRadioEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioEstadosActionPerformed
+        mostrarGraficoArea1();
+        
+    }//GEN-LAST:event_jRadioEstadosActionPerformed
+
+    private void jRadioEntidadesObligadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioEntidadesObligadasActionPerformed
+        mostrarGraficoBarras1();
+        
+    }//GEN-LAST:event_jRadioEntidadesObligadasActionPerformed
+
+    private void jRadioRamaEntidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioRamaEntidadActionPerformed
+        mostrarGrafico();
+        
+    }//GEN-LAST:event_jRadioRamaEntidadActionPerformed
 
     private void mostrarGraficoTorta1(){
         estadistica.GraficoTorta1();
@@ -240,9 +328,15 @@ public class GUIdash extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioEntidadesObligadas;
+    private javax.swing.JRadioButton jRadioEstados;
+    private javax.swing.JRadioButton jRadioGraficaTiendasXAño;
+    private javax.swing.JRadioButton jRadioRamaEntidad;
+    private javax.swing.JRadioButton jRadioTerritorialesNacionales;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton jbGenerar;

@@ -218,9 +218,9 @@ public class GraficasDash extends JPanel {
         dataset.addValue(ramaEntidad.ramaEntidad[4], "Organismos autonomos o idependientes", "2021 - 2022 - 2023");//ventas de Mazda de Sebastian
 
         
-        chart = ChartFactory.createWaterfallChart("Ventas 2014", 
-                "Vendedores", 
-                "Cantidad de Vehiculos",
+        chart = ChartFactory.createWaterfallChart("Cantidad por ramas", 
+                "años", 
+                "Cantidad de tiendas",
                 dataset, 
                 PlotOrientation.VERTICAL, 
                 true,true, false);
