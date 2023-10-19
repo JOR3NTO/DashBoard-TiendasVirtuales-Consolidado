@@ -223,6 +223,7 @@ public class GUIdash extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioEntidadesObligadasActionPerformed
 
     private void jRadioRamaEntidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioRamaEntidadActionPerformed
+        //a
         mostrarGrafico();
         
     }//GEN-LAST:event_jRadioRamaEntidadActionPerformed
