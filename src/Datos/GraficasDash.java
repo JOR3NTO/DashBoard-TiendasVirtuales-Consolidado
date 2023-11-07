@@ -24,6 +24,8 @@ public class GraficasDash extends JPanel {
     }
     //hola bro
 
+    //Ole
+
     // --------------------------------------------------------------------------------
     //Consulta fija
     public void GraficoTorta1() {
