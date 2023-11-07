@@ -4,7 +4,12 @@
  */
 package GUI;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import Datos.GraficasDash;
+import Datos.LeerArchivoCSV;
+import Datos.getComboBoxes;
 
 /**
  *
@@ -14,6 +19,8 @@ public class GUIdash extends javax.swing.JFrame {
 
     // Objetos
     GraficasDash estadistica = new GraficasDash();
+    LeerArchivoCSV graficoGeneral = new LeerArchivoCSV();
+    getComboBoxes getValues = new getComboBoxes();
 
     /**
      * Creates new form GUIdash
@@ -42,18 +49,22 @@ public class GUIdash extends javax.swing.JFrame {
         jRadioEstados = new javax.swing.JRadioButton();
         jRadioEntidadesObligadas = new javax.swing.JRadioButton();
         jRadioRamaEntidad = new javax.swing.JRadioButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboAño = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jComboMes = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jComboDia = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboEstadoOrden = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboDepartamento = new javax.swing.JComboBox<>();
+        jComboSectorEntidad = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jComboOrdenEntidad = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jComboRamaEntidad = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
 
@@ -117,7 +128,7 @@ public class GUIdash extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "2021", "2022", "2023" }));
+        jComboAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "2021", "2022", "2023" }));
 
         jLabel3.setText("Año");
 
@@ -136,20 +147,38 @@ public class GUIdash extends javax.swing.JFrame {
 
         jLabel2.setText("Estado de la orden");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Emitida", "Cerrada", "Cancelada" }));
+        jComboEstadoOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Emitida", "Cerrada", "Cancelada" }));
 
         jLabel6.setText("Departamento");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Amazonas", "Antioquia", "Arauca", "Atlántico", "Bolívar", "Boyacá", "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca", "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena", "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío", "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima", "Valle del Cauca", "Vaupés", "Vichada" }));
+        jComboDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Amazonas", "Antioquia", "Arauca", "Atlántico", "Bolívar", "Boyacá", "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó", "Córdoba", "Cundinamarca", "Guainía", "Guaviare", "Huila", "La Guajira", "Magdalena", "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío", "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima", "Valle del Cauca", "Vaupés", "Vichada" }));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Agricultura y Desarrollo Rural", "Ambiente y Desarrollo Sostenible", "Ciencia y Tecnologia", "Comercio Industria y Turismo", "Cultura", "Defensa Nacional", "Deporte", "Educacion Nacional", "Funcion Publica", "Hacienda y Cedito Publico", "Inclusion social y reconciliacion", "Informacin Estadistica", "Inteligencia Estrategica y Contrainteligencia", "Interior", "Justicia y del Derecho", "Minas y Energia", "No Aplica", "Planeacion", "Presidencia de la Republica", "Relaciones Exteriores", "Salud y Proteccion Social", "Tecnologias de la Informacion y las comunicaciones", "Trabajo", "Transporte", "Vivienda Ciudad y Territorio" }));
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        jComboSectorEntidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Agricultura y Desarrollo Rural", "Ambiente y Desarrollo Sostenible", "Ciencia y Tecnologia", "Comercio Industria y Turismo", "Cultura", "Defensa Nacional", "Deporte", "Educacion Nacional", "Funcion Publica", "Hacienda y Cedito Publico", "Inclusion social y reconciliacion", "Informacin Estadistica", "Inteligencia Estrategica y Contrainteligencia", "Interior", "Justicia y del Derecho", "Minas y Energia", "No Aplica", "Planeacion", "Presidencia de la Republica", "Relaciones Exteriores", "Salud y Proteccion Social", "Tecnologias de la Informacion y las comunicaciones", "Trabajo", "Transporte", "Vivienda Ciudad y Territorio" }));
+        jComboSectorEntidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                jComboSectorEntidadActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Sector de la entiedad");
+
+        jLabel8.setText("Rama de la entidad");
+
+        jComboOrdenEntidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Territorial", "Nacional" }));
+        jComboOrdenEntidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboOrdenEntidadActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Orden de la entidad");
+
+        jComboRamaEntidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Judicial", "Legislativa", "Ejecutiva", "Organismos autonomos o independientes" }));
+        jComboRamaEntidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboRamaEntidadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,7 +210,7 @@ public class GUIdash extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(14, 14, 14)
                                 .addComponent(jLabel3)))
@@ -196,18 +225,29 @@ public class GUIdash extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboEstadoOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboSectorEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel7)))
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jComboRamaEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jComboOrdenEntidad, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(9, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -231,7 +271,7 @@ public class GUIdash extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
@@ -240,13 +280,21 @@ public class GUIdash extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboEstadoOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
+                .addComponent(jComboSectorEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jComboRamaEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboOrdenEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(jbGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
         );
@@ -295,18 +343,53 @@ public class GUIdash extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+    private void jComboSectorEntidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboSectorEntidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox4ActionPerformed
+    }//GEN-LAST:event_jComboSectorEntidadActionPerformed
+
+    private void jComboOrdenEntidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboOrdenEntidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboOrdenEntidadActionPerformed
+
+    private void jComboRamaEntidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboRamaEntidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboRamaEntidadActionPerformed
+
+
+    
 
     private void jbGenerarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbGenerarActionPerformed
-
+        calcularGraficoAGraficar();
         pack();
         repaint();
     }// GEN-LAST:event_jbGenerarActionPerformed
 
+    private void calcularGraficoAGraficar(){
+
+        String año,mes,dia,estadoOrden;
+        año = jComboAño.getSelectedItem().toString();
+        mes = jComboMes.getSelectedItem().toString();
+        dia = jComboDia.getSelectedItem().toString();
+        estadoOrden = jComboEstadoOrden.getSelectedItem().toString();
+
+
+
+        int codAño = getValues.getValueAño(año);
+        int codMes = getValues.getValueMes(mes);
+        int codEstadoOrden = getValues.getValueEstadoOrden(estadoOrden);
+        
+
+        graficoGeneral.calcularGrafico(codAño, codMes, codEstadoOrden);
+    }
+
+
+
+
+
+
+
     private void jRadioGraficaTiendasXAñoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioGraficaTiendasXAñoActionPerformed
-        mostrarGraficoTorta1();
+        if(jRadioGraficaTiendasXAño.isSelected()) mostrarGraficoTorta1();
 
     }// GEN-LAST:event_jRadioGraficaTiendasXAñoActionPerformed
 
@@ -332,78 +415,17 @@ public class GUIdash extends javax.swing.JFrame {
     }// GEN-LAST:event_jRadioRamaEntidadActionPerformed
 
     private void jComboMesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboMesActionPerformed
-        String value = jComboMes.getSelectedItem().toString();
+        String month = jComboMes.getSelectedItem().toString();
+        int daysInMonth = getValues.getDaysInMonth(month);
 
-        switch (value) {
-            case "Enero":
-                
-                for (int i = 1; i <= 31; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-            case "Febrero":
-                
-                for (int i = 1; i <= 29; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
+        jComboDia.removeAllItems(); // Limpia los elementos anteriores
 
-                break;
-            case "Marzo":
-                
-                for (int i = 1; i <= 31; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-            case "Abril":
-                for (int i = 1; i <= 30; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-            case "Mayo":
-                for (int i = 1; i <= 31; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-            case "Junio":
-                for (int i = 1; i <= 30; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-            case "Julio":
-                for (int i = 1; i <= 31; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-            case "Agosto":
-                for (int i = 1; i <= 31; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-            case "Septiembre":
-                for (int i = 1; i <= 30; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-            case "Octubre":
-                for (int i = 1; i <= 31; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-            case "Noviembre":
-                for (int i = 1; i <= 30; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-            case "Diciembre":
-                for (int i = 1; i <= 31; i++) {
-                    jComboDia.addItem(Integer.toString(i));
-                }
-                break;
-
-            default:
-                throw new AssertionError();
+        for (int i = 1; i <= daysInMonth; i++) {
+            jComboDia.addItem(Integer.toString(i));
         }
     }// GEN-LAST:event_jComboMesActionPerformed
+
+    
 
     private void mostrarGraficoTorta1() {
         estadistica.GraficoTorta1();
@@ -477,12 +499,14 @@ public class GUIdash extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboAño;
+    private javax.swing.JComboBox<String> jComboDepartamento;
     private javax.swing.JComboBox<String> jComboDia;
+    private javax.swing.JComboBox<String> jComboEstadoOrden;
     private javax.swing.JComboBox<String> jComboMes;
+    private javax.swing.JComboBox<String> jComboOrdenEntidad;
+    private javax.swing.JComboBox<String> jComboRamaEntidad;
+    private javax.swing.JComboBox<String> jComboSectorEntidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -490,6 +514,8 @@ public class GUIdash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioEntidadesObligadas;

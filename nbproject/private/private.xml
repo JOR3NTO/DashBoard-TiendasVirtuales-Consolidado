@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/eduar/Documentos/Programacion/Java/DASHBOARDS/TiendaVirtuales/DashBoard-TiendasVirtuales-Consolidado/src/GUI/GUIdash.java</file>
+            <file>file:/C:/Users/eduar/Documentos/Ingenieria_de_Sistemas/Proyectos_Integradores/Proyecto_Integrador_III/DashBoard-TiendasVirtuales-Consolidado/src/Datos/getDatos.java</file>
+            <file>file:/C:/Users/eduar/Documentos/Ingenieria_de_Sistemas/Proyectos_Integradores/Proyecto_Integrador_III/DashBoard-TiendasVirtuales-Consolidado/src/Datos/GraficasDash.java</file>
+            <file>file:/C:/Users/eduar/Documentos/Ingenieria_de_Sistemas/Proyectos_Integradores/Proyecto_Integrador_III/DashBoard-TiendasVirtuales-Consolidado/src/Datos/LeerArchivoCSV.java</file>
+            <file>file:/C:/Users/eduar/Documentos/Ingenieria_de_Sistemas/Proyectos_Integradores/Proyecto_Integrador_III/DashBoard-TiendasVirtuales-Consolidado/src/GUI/GUIdash.java</file>
         </group>
     </open-files>
 </project-private>

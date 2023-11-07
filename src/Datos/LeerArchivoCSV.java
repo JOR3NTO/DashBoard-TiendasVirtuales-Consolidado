@@ -237,7 +237,35 @@ public class LeerArchivoCSV {
         return postConflicto;                                      
     }
 
+    public void calcularGrafico(int año, int mes, int codEstadoOrden){
+        Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
 
+        for (int i = 0; i < inst.size(); i++) {
+            getDatos obj = inst.get(i);
+            switch (obj.postConflicto) {
+                case "Definida":   postConflicto[0]++;                  
+                    break;
+                case "No Definida":  postConflicto[1]++;                  
+                    break;
+            }
+        }
+        
+        switch (año) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            
+        
+            default:
+                break;
+        }
+
+    }
 
 
 
