@@ -25,6 +25,8 @@ public class GraficasDash extends JPanel {
     //hola bro
 
     //Ole
+    
+    //DIOS ES GOD
 
     // --------------------------------------------------------------------------------
     //Consulta fija
