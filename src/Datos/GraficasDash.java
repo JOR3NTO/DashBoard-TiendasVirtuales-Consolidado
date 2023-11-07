@@ -22,7 +22,7 @@ public class GraficasDash extends JPanel {
     public GraficasDash() {
 
     }
-    
+    //hola bro
 
     // --------------------------------------------------------------------------------
     //Consulta fija
