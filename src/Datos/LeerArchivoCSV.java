@@ -9,6 +9,13 @@ import javax.swing.JOptionPane;
 public class LeerArchivoCSV {
 
     int año[] = new int[3];
+
+    int cantEstados[] = new int[3];
+    int cantTerritorialesNacionales[] = new int[2];
+    int cantEntidadObligada[] = new int[2];
+    int cantRama[] = new int[5];
+    
+
     int entidadObligada[] = new int[6];
     int estado[] = new int[9];
     int ordenEntidad[] = new int[9];
@@ -65,7 +72,9 @@ public class LeerArchivoCSV {
         }
     }
     
-    public int[] cantidadVentasXAño(){
+//---------------------------------------------------------------------------------------------------------
+    
+    public int[] cantidad_Ventas_Años_torta(){
         Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
         año[0] = 0;
         año[1] = 0;
@@ -85,187 +94,99 @@ public class LeerArchivoCSV {
 
         return año;                                      
     }
-    
-    public int[] cantidadEntidadesObligadas(){
-        Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
-        
-        for (int i = 0; i < entidadObligada.length; i++) {
-            entidadObligada[i] = 0;
-        }
-        
-        for (int i = 0; i < inst.size(); i++) {
-            getDatos obj = inst.get(i);
-            switch (obj.año) {
-                case 2021:
-                    if(obj.entidadObligada.equals("Obligada")){
-                        entidadObligada[0]++;                        
-                    }else entidadObligada[1]++;
-                   
-                break;
-                
-                case 2022:
-                    if(obj.entidadObligada.equals("Obligada")){
-                        entidadObligada[2]++;                        
-                    }else entidadObligada[3]++;
-                break;
-                
-                case 2023:
-                    if(obj.entidadObligada.equals("Obligada")){
-                        entidadObligada[4]++;                        
-                    }else entidadObligada[5]++;
-                break;
-            }
-        }
-        
-        return entidadObligada;                                      
-    }
-    
-    public int[] cantidadTerritorialesONacionales(){
-        Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
-        
-        for (int i = 0; i < ordenEntidad.length; i++) {
-            ordenEntidad[i] = 0;
-        }
-        
-        for (int i = 0; i < inst.size(); i++) {
-            getDatos obj = inst.get(i);
-            switch (obj.año) {
-                case 2021:
-                    if(obj.ordenEntidad.equals("Territorial")) ordenEntidad[0]++;        
-                    else if(obj.ordenEntidad.equals("Nacional")) ordenEntidad[1]++;
-                    else ordenEntidad[2]++;                   
-                break;
-                
-                case 2022:
-                    if(obj.ordenEntidad.equals("Territorial")) ordenEntidad[3]++;        
-                    else if(obj.ordenEntidad.equals("Nacional")) ordenEntidad[4]++;
-                    else ordenEntidad[5]++;                   
-                break;
-                
-                case 2023:
-                    if(obj.ordenEntidad.equals("Territorial")) ordenEntidad[6]++;        
-                    else if(obj.ordenEntidad.equals("Nacional")) ordenEntidad[7]++;
-                    else ordenEntidad[8]++;                   
-                break;
-            }
-        }
-        
-        return ordenEntidad;                                      
-    }
 
-    public int[] estado(){
+    public int[] cantidad_Estados_Venta_torta(){
         Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
-        for (int i = 0; i < entidadObligada.length; i++) {
-            estado[i] = 0;
-        }
+        cantEstados[0] = 0;
+        cantEstados[1] = 0;
+        cantEstados[2] = 0;
 
-        //Recuerda que son 3, emitida, cerrada o cancelada
         for (int i = 0; i < inst.size(); i++) {
             getDatos obj = inst.get(i);
-            switch (obj.año) {
-                case 2021:
-                    if(obj.estado.equals("Emitida")) estado[0]++;                        
-                    else if(obj.estado.equals("Cerrada")) estado[1]++;
-                    else estado[2]++;
-                break;
-                
-                case 2022:
-                    if(obj.estado.equals("Emitida")) estado[3]++;                        
-                    else if(obj.estado.equals("Cerrada")) estado[4]++;
-                    else estado[5]++;
-                break;
-                
-                case 2023:
-                    if(obj.estado.equals("Emitida")) estado[6]++;                        
-                    else if(obj.estado.equals("Cerrada")) estado[7]++;
-                    else estado[8]++;
-                break;
-                
-                default:
-                    JOptionPane.showMessageDialog(null,"ERROR AL CALCULAR EL ESTADO DE LAS COMPRAS");
+            switch (obj.estado) {
+                case "Emitida": cantEstados[0]++;                  
+                    break;
+                case "Cerrada": cantEstados[1]++;                  
+                    break;
+                case "Cancelada": cantEstados[2]++;
                     break;
             }
         }
-        return estado;
+
+        return cantEstados;                                      
     }
 
-    
-    
-    public int[] ramaEntidad(){
+    //Territorial o Nacional en años
+    public int[] cantitad_Territoriales_Nacionales_torta(){
         Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
-        ramaEntidad[0] = 0;
-        ramaEntidad[1] = 0;
-        ramaEntidad[2] = 0;
-        ramaEntidad[3] = 0;
-        ramaEntidad[4] = 0;
-        
+        cantTerritorialesNacionales[0] = 0;
+        cantTerritorialesNacionales[1] = 0;
+
+        for (int i = 0; i < inst.size(); i++) {
+            getDatos obj = inst.get(i);
+            switch (obj.ordenEntidad) {
+                case "Territorial": cantTerritorialesNacionales[0]++;                  
+                    break;
+                case "Nacional": cantTerritorialesNacionales[1]++;                  
+                    break;
+            }
+        }
+
+        return cantTerritorialesNacionales;                                      
+    }
+
+    //Cantidad de ventas obligada o no obligada
+    
+    public int[] cantitad_Entidades_Obligadas_torta(){
+        Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
+        cantEntidadObligada[0] = 0;
+        cantEntidadObligada[1] = 0;
+
+        for (int i = 0; i < inst.size(); i++) {
+            getDatos obj = inst.get(i);
+            switch (obj.entidadObligada) {
+                case "Obligada": cantEntidadObligada[0]++;                  
+                    break;
+                case "No obligada": cantEntidadObligada[1]++;                  
+                    break;
+            }
+        }
+
+        return cantTerritorialesNacionales;                                      
+    }
+
+    //Rama entidad en años
+    
+    public int[] cantitad_Rama_Entidad_torta(){
+        Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
+        cantRama[0] = 0;
+        cantRama[1] = 0;
+        cantRama[2] = 0;
+        cantRama[3] = 0;
+        cantRama[4] = 0;
+
+
         for (int i = 0; i < inst.size(); i++) {
             getDatos obj = inst.get(i);
             switch (obj.ramaEntidad) {
-                case "Ejecutiva":   ramaEntidad[0]++;                  
+                case "Judicial": cantRama[0]++;                  
                     break;
-                case "Judicial":  ramaEntidad[1]++;                  
+                case "Legislativa": cantRama[1]++;                  
                     break;
-                case "Legislativa":  ramaEntidad[2]++;
+                case "Ejecutiva": cantRama[2]++;                  
                     break;
-                case "No Definido":  ramaEntidad[3]++;
+                case "Organismos autonomos o independientes": cantRama[3]++;                  
                     break;
-                case "Organismos autonomos o idependientes":  ramaEntidad[4]++;
-                    break;
-            }
-        }
-
-        return ramaEntidad;
-    }
-
-    public int[] postConflicto(){
-        Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
-        postConflicto[0] = 0;
-        postConflicto[1] = 0;
-
-        
-        for (int i = 0; i < inst.size(); i++) {
-            getDatos obj = inst.get(i);
-            switch (obj.postConflicto) {
-                case "Definida":   postConflicto[0]++;                  
-                    break;
-                case "No Definida":  postConflicto[1]++;                  
+                case "-": cantRama[4]++; 
                     break;
             }
         }
-        
-        return postConflicto;                                      
+
+        return cantRama;                                      
     }
 
-    public void calcularGrafico(int año, int mes, int codEstadoOrden){
-        Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
+    //-------------------------------------------------------------------------------------------
 
-        for (int i = 0; i < inst.size(); i++) {
-            getDatos obj = inst.get(i);
-            switch (obj.postConflicto) {
-                case "Definida":   postConflicto[0]++;                  
-                    break;
-                case "No Definida":  postConflicto[1]++;                  
-                    break;
-            }
-        }
-        
-        switch (año) {
-            case 0:
-                break;
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            
-        
-            default:
-                break;
-        }
-
-    }
 
 
 
