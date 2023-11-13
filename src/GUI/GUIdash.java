@@ -4,9 +4,6 @@
  */
 package GUI;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import Datos.GraficasDash;
 import Datos.LeerArchivoCSV;
 import Datos.getComboBoxes;
@@ -53,8 +50,6 @@ public class GUIdash extends javax.swing.JFrame {
         jRadioEstados = new javax.swing.JRadioButton();
         jRadioEntidadesObligadas = new javax.swing.JRadioButton();
         jRadioRamaEntidad = new javax.swing.JRadioButton();
-        jComboAño = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         jComboMes = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jComboDia = new javax.swing.JComboBox<>();
@@ -146,19 +141,6 @@ public class GUIdash extends javax.swing.JFrame {
             }
         });
 
-        jComboAño.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
-        jComboAño.setForeground(new java.awt.Color(153, 204, 255));
-        jComboAño.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "2021", "2022", "2023" }));
-        jComboAño.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboAñoActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Ink Free", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Año");
-
         jComboMes.setFont(new java.awt.Font("Cambria", 1, 15)); // NOI18N
         jComboMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         jComboMes.setMinimumSize(new java.awt.Dimension(72, 22));
@@ -245,50 +227,41 @@ public class GUIdash extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jComboAño, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboMes, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel4)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel5))
-                            .addComponent(jComboDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jRadioRamaEntidad)
-                            .addComponent(jRadioEntidadesObligadas)
-                            .addComponent(jRadioGraficaTiendasXAño)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jRadioEstados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioTerritorialesNacionales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jComboEstadoOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(35, 35, 35)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboRamaEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))
                         .addGap(18, 18, 18)
-                        .addComponent(jComboOrdenEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboOrdenEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jRadioEntidadesObligadas)
+                            .addComponent(jRadioGraficaTiendasXAño)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jRadioEstados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioTerritorialesNacionales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addComponent(jComboEstadoOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioRamaEntidad)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabel4)
+                                .addGap(57, 57, 57))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jComboMes, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -319,23 +292,18 @@ public class GUIdash extends javax.swing.JFrame {
                 .addComponent(jRadioGraficaTiendasXAño)
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(3, 3, 3)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboMes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabel5)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboEstadoOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboMes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboEstadoOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -409,16 +377,23 @@ public class GUIdash extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboRamaEntidadActionPerformed
 
-    private void jComboAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboAñoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboAñoActionPerformed
-
     private void jComboDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboDiaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboDiaActionPerformed
 
+    private void jComboMesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboMesActionPerformed
+            String month = jComboMes.getSelectedItem().toString();
+            int daysInMonth = getValues.getDaysInMonth(month);
 
-    
+            jComboDia.removeAllItems(); // Limpia los elementos anteriores
+
+            jComboDia.addItem("-");
+
+            for (int i = 1; i <= daysInMonth; i++) {
+                jComboDia.addItem(Integer.toString(i));
+            }
+    }// GEN-LAST:event_jComboMesActionPerformed
+   
 
     private void jbGenerarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jbGenerarActionPerformed
         //calcularGraficoAGraficar();
@@ -426,36 +401,158 @@ public class GUIdash extends javax.swing.JFrame {
         repaint();
     }// GEN-LAST:event_jbGenerarActionPerformed
    
+
    
-    /*
-    private void calcularGraficoAGraficar(){
+    public void encontrarConsulta(){
 
-        String año,mes,dia,estadoOrden;
-        año = jComboAño.getSelectedItem().toString();
-        mes = jComboMes.getSelectedItem().toString();
-        dia = jComboDia.getSelectedItem().toString();
-        estadoOrden = jComboEstadoOrden.getSelectedItem().toString();
+        String mes_fil = jComboMes.getSelectedItem().toString();
+        String dia_fil = jComboDia.getSelectedItem().toString();
+
+        String estadoOrden_fil = jComboEstadoOrden.getSelectedItem().toString();
+        String departamento_fil = jComboDepartamento.getSelectedItem().toString();
+        
+        String sectorEntidad_fil = jComboSectorEntidad.getSelectedItem().toString();
+        String ramaEntidad_fil = jComboRamaEntidad.getSelectedItem().toString();
+        String ordenEntidad_fil = jComboOrdenEntidad.getSelectedItem().toString();
 
 
 
-        int codAño = getValues.getValueAño(año);
-        int codMes = getValues.getValueMes(mes);
-        int codEstadoOrden = getValues.getValueEstadoOrden(estadoOrden);
+
+
+
+
+
         
 
-        //graficoGeneral.calcularGrafico(codAño, codMes, codEstadoOrden);
+
+
     }
 
-    */
+
+
+
+
+
+    // ActionPerformed de los Radio Buttons----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    private void jRadioGraficaTiendasXAñoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioGraficaTiendasXAñoActionPerformed
+        jPanel2.removeAll();
+
+        repaint();
+        encontrarValue();
+        
+        if(jRadioGraficaTiendasXAño.isSelected()){
+            
+            
+            jRadioEntidadesObligadas.setSelected(false);
+            jRadioEstados.setSelected(false);
+            jRadioRamaEntidad.setSelected(false);
+            jRadioTerritorialesNacionales.setSelected(false);
+            mostrarGraficoTorta1();
+            mostrarGraficoBarras1();
+            mostrarGraficoArea1();
+            mostrarGraficoLineal();
+
+
+        } else jPanel2.removeAll();
+
+        pack();
+        repaint();
+    }// GEN-LAST:event_jRadioGraficaTiendasXAñoActionPerformed
+
+    private void jRadioTerritorialesNacionalesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioTerritorialesNacionalesActionPerformed
+        jPanel2.removeAll();
+        repaint();
+        encontrarValue();
+        if(jRadioTerritorialesNacionales.isSelected()){
+
+            jRadioGraficaTiendasXAño.setSelected(false);
+            jRadioEntidadesObligadas.setSelected(false);
+            jRadioRamaEntidad.setSelected(false);
+            jRadioEstados.setSelected(false);
+            mostrarGraficoTorta1();
+            mostrarGraficoBarras1();
+            mostrarGraficoArea1();
+            mostrarGraficoLineal();
+
+        } else jPanel2.removeAll();
+
+        pack();
+        repaint();
+
+    }// GEN-LAST:event_jRadioTerritorialesNacionalesActionPerformed
+
+    private void jRadioEstadosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioEstadosActionPerformed
+        jPanel2.removeAll();
+        repaint();
+        encontrarValue();
+        if(jRadioEstados.isSelected()){
+            jRadioGraficaTiendasXAño.setSelected(false);
+            jRadioEntidadesObligadas.setSelected(false);
+            jRadioRamaEntidad.setSelected(false);
+            jRadioTerritorialesNacionales.setSelected(false);
+            mostrarGraficoTorta1();
+            mostrarGraficoBarras1();
+            mostrarGraficoArea1();
+            mostrarGraficoLineal();
+
+        } else jPanel2.removeAll();
+
+        pack();
+        repaint();
+
+    }// GEN-LAST:event_jRadioEstadosActionPerformed
+
+    private void jRadioEntidadesObligadasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioEntidadesObligadasActionPerformed
+        jPanel2.removeAll();
+        repaint();
+        encontrarValue();
+        if(jRadioEntidadesObligadas.isSelected()){
+            jRadioGraficaTiendasXAño.setSelected(false);
+            jRadioEstados.setSelected(false);
+            jRadioRamaEntidad.setSelected(false);
+            jRadioTerritorialesNacionales.setSelected(false);
+            mostrarGraficoTorta1();
+            mostrarGraficoBarras1();
+            mostrarGraficoArea1();
+            mostrarGraficoLineal();
+
+        } else jPanel2.removeAll();
+
+        pack();
+        repaint();
+
+    }// GEN-LAST:event_jRadioEntidadesObligadasActionPerformed
+
+    private void jRadioRamaEntidadActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioRamaEntidadActionPerformed
+        jPanel2.removeAll();
+        repaint();
+        encontrarValue();
+        if(jRadioRamaEntidad.isSelected()){
+            jRadioGraficaTiendasXAño.setSelected(false);
+            jRadioEntidadesObligadas.setSelected(false);
+            jRadioEstados.setSelected(false);
+            jRadioTerritorialesNacionales.setSelected(false);
+            mostrarGraficoTorta1();
+            mostrarGraficoBarras1();
+            mostrarGraficoArea1();
+            mostrarGraficoLineal();
+
+        } else jPanel2.removeAll();
+
+        pack();
+        repaint();
+        //mostrarGrafico();
+
+    }// GEN-LAST:event_jRadioRamaEntidadActionPerformed
 
     public void encontrarValue(){
         
         if (jRadioGraficaTiendasXAño.isSelected()) {
-            value = new String[jComboAño.getItemCount()-1];
-            for (int i = 0; i < jComboAño.getItemCount()-1; i++) {
-                value[i] = jComboAño.getItemAt(i+1);
-                
-            }
+            value = new String[3];
+            value[0] = "2021";
+            value[1] = "2022";
+            value[2] = "2023";
 
             key = 1;
             
@@ -496,123 +593,7 @@ public class GUIdash extends javax.swing.JFrame {
         }
     }
 
-    // ActionPerformed de los Radio Buttons
 
-    private void jRadioGraficaTiendasXAñoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioGraficaTiendasXAñoActionPerformed
-        encontrarValue();
-        if(jRadioGraficaTiendasXAño.isSelected()){
-            
-            jRadioEntidadesObligadas.setSelected(false);
-            jRadioEstados.setSelected(false);
-            jRadioRamaEntidad.setSelected(false);
-            jRadioTerritorialesNacionales.setSelected(false);
-            mostrarGraficoTorta1();
-            mostrarGraficoBarras1();
-            mostrarGraficoArea1();
-            mostrarGraficoLineal();
-
-
-        } else jPanel2.removeAll();
-
-        pack();
-        repaint();
-    }// GEN-LAST:event_jRadioGraficaTiendasXAñoActionPerformed
-
-    private void jRadioTerritorialesNacionalesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioTerritorialesNacionalesActionPerformed
-        encontrarValue();
-        if(jRadioTerritorialesNacionales.isSelected()){
-
-            jRadioGraficaTiendasXAño.setSelected(false);
-            jRadioEntidadesObligadas.setSelected(false);
-            jRadioRamaEntidad.setSelected(false);
-            jRadioEstados.setSelected(false);
-            mostrarGraficoTorta1();
-            mostrarGraficoBarras1();
-            mostrarGraficoArea1();
-            mostrarGraficoLineal();
-
-        } else jPanel2.removeAll();
-
-        pack();
-        repaint();
-
-    }// GEN-LAST:event_jRadioTerritorialesNacionalesActionPerformed
-
-    private void jRadioEstadosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioEstadosActionPerformed
-        encontrarValue();
-        if(jRadioEstados.isSelected()){
-            
-            jRadioGraficaTiendasXAño.setSelected(false);
-            jRadioEntidadesObligadas.setSelected(false);
-            jRadioRamaEntidad.setSelected(false);
-            jRadioTerritorialesNacionales.setSelected(false);
-            mostrarGraficoTorta1();
-            mostrarGraficoBarras1();
-            mostrarGraficoArea1();
-            mostrarGraficoLineal();
-            
-
-        } else jPanel2.removeAll();
-
-        pack();
-        repaint();
-
-    }// GEN-LAST:event_jRadioEstadosActionPerformed
-
-    private void jRadioEntidadesObligadasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioEntidadesObligadasActionPerformed
-        encontrarValue();
-        if(jRadioEntidadesObligadas.isSelected()){
-
-            jRadioGraficaTiendasXAño.setSelected(false);
-            jRadioEstados.setSelected(false);
-            jRadioRamaEntidad.setSelected(false);
-            jRadioTerritorialesNacionales.setSelected(false);
-            mostrarGraficoTorta1();
-            mostrarGraficoBarras1();
-            mostrarGraficoArea1();
-            mostrarGraficoLineal();
-
-        } else jPanel2.removeAll();
-
-        pack();
-        repaint();
-        
-        //mostrarGraficoBarras1();
-
-    }// GEN-LAST:event_jRadioEntidadesObligadasActionPerformed
-
-    private void jRadioRamaEntidadActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioRamaEntidadActionPerformed
-        encontrarValue();
-        if(jRadioRamaEntidad.isSelected()){
-
-            jRadioGraficaTiendasXAño.setSelected(false);
-            jRadioEntidadesObligadas.setSelected(false);
-            jRadioEstados.setSelected(false);
-            jRadioTerritorialesNacionales.setSelected(false);
-            mostrarGraficoTorta1();
-            mostrarGraficoBarras1();
-            mostrarGraficoArea1();
-            mostrarGraficoLineal();
-
-        } else jPanel2.removeAll();
-
-        pack();
-        repaint();
-        //mostrarGrafico();
-
-    }// GEN-LAST:event_jRadioRamaEntidadActionPerformed
-
-    private void jComboMesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboMesActionPerformed
-        String month = jComboMes.getSelectedItem().toString();
-        int daysInMonth = getValues.getDaysInMonth(month);
-
-        jComboDia.removeAllItems(); // Limpia los elementos anteriores
-
-        for (int i = 1; i <= daysInMonth; i++) {
-            jComboDia.addItem(Integer.toString(i));
-        }
-    }// GEN-LAST:event_jComboMesActionPerformed
-   
 
     private void mostrarGraficoTorta1() {
         estadistica.GraficoTorta1(value,key);
@@ -636,19 +617,10 @@ public class GUIdash extends javax.swing.JFrame {
         jPanel2.add(estadistica.getGrafico());
     }
 
-    /**
-     * @param args the command line arguments
-     */
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -681,7 +653,6 @@ public class GUIdash extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> jComboAño;
     private javax.swing.JComboBox<String> jComboDepartamento;
     private javax.swing.JComboBox<String> jComboDia;
     private javax.swing.JComboBox<String> jComboEstadoOrden;
@@ -691,7 +662,6 @@ public class GUIdash extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboSectorEntidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
