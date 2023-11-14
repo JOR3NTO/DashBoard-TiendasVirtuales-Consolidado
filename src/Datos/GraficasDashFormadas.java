@@ -14,9 +14,7 @@ import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-
 import javax.swing.JLabel;
-
 import java.text.NumberFormat;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -121,11 +119,8 @@ public class GraficasDashFormadas {
     //Consultas no fijas
 
     // ------------------------------------------------------------------------------------------
-    //Cantidad de venras X año
+    //Cantidad de ventas X año
     public void cantidad_Ventas_Mes_torta_No_fijo(){
-        
-
-
         Leer_Archivo("csv/TiendasVirtualesConsolidadoDepurado.csv");
         for (int i = 0; i < años_consulta.length; i++) años_consulta[i] = 0;
         

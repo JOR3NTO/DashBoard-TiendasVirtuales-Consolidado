@@ -8,15 +8,12 @@
  */
 package GUI;
 
-import javax.swing.JLabel;
-
 import Datos.GraficasDash;
 import Datos.GraficasDashFormadas;
 import Datos.LeerArchivoCSV;
 import Datos.getComboBoxes;
 import java.awt.Image;
 import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 
 public class GUIdash extends javax.swing.JFrame {
 
@@ -97,7 +94,7 @@ public class GUIdash extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(91, 161, 153));
 
-        jLabel1.setFont(new java.awt.Font("Ink Free", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Goudy Old Style", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Menú principal");
@@ -239,9 +236,6 @@ public class GUIdash extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -277,25 +271,25 @@ public class GUIdash extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jComboSectorEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(14, 14, 14)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboEstadoOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel7))))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jbGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jComboSectorEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(14, 14, 14)))
+                            .addComponent(jComboEstadoOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel7))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,49 +436,52 @@ public class GUIdash extends javax.swing.JFrame {
         departamento_fil,sectorEntidad_fil,ramaEntidad_fil,ordenEntidad_fil);
 
         gdf.cantidad_Ventas_Mes_torta_No_fijo();
-
         gdf.Grafico_Torta_No_Fija();
         jPanel2.add(gdf.getGraficoTorta());
+        if(jComboMes.getSelectedItem().toString() == "-") jPanel2.remove(gdf.getGraficoTorta());
 
         gdf.cantidad_Ventas_Dia_Axi_No_fijo();
         gdf.Grafico_Axi_No_Fija();
         jPanel2.add(gdf.getGraficoAxi());
+        if(jComboDia.getSelectedItem().toString() == "-") jPanel2.remove(gdf.getGraficoAxi());
 
         gdf.cantidad_Departamanto_Grafica_Area_No_Fija();
         gdf.Grafico_Area_No_Fija();
         jPanel2.add(gdf.getGraficoArea());
+        if(jComboDepartamento.getSelectedItem().toString() == "-") jPanel2.remove(gdf.getGraficoArea());
 
         gdf.cantidad_Estado_Grafica_No_Fija();
         gdf.Grafico_Lineal_No_Fija();
         jPanel2.add(gdf.getGraficoLineal());
+        if(jComboEstadoOrden.getSelectedItem().toString() == "-") jPanel2.remove(gdf.getGraficoLineal());
 
         gdf.cantidad_Sector_Entidad_Barra_No_Fija();
         gdf.Grafico_Barras_No_Fija();
         jPanel2.add(gdf.getGraficoBarras());
+        if(jComboSectorEntidad.getSelectedItem().toString() == "-") jPanel2.remove(gdf.getGraficoBarras());
 
         gdf.cantidad_Rama_Entidad_Polar_No_Fija();
         gdf.Grafico_Polar_No_Fija();
         jPanel2.add(gdf.getGraficoPolar());
+        if(jComboRamaEntidad.getSelectedItem().toString() == "-") jPanel2.remove(gdf.getGraficoPolar());
 
         gdf.cantidad_Orden_Entidad_Lineal_No_Fija();
         gdf.Grafico_Lineal2_No_Fija();
         jPanel2.add(gdf.getGraficoLineal2());
+        if(jComboOrdenEntidad.getSelectedItem().toString() == "-") jPanel2.remove(gdf.getGraficoLineal2());
 
         gdf.cantidad_EstadoDeLaOrden_X_Mes_No_Fija();
         gdf.Grafico_TortaPartida_No_Fija();
-        jPanel2.add(gdf.getGraficoTortaPartida());       
-
-
-        
+        jPanel2.add(gdf.getGraficoTortaPartida());
+        if(jComboEstadoOrden.getSelectedItem().toString() == "-") jPanel2.remove(gdf.getGraficoTortaPartida());
 
         gdf.cantidad_Rama_Entidad_X_Mes_Axis_No_Fija();
         gdf.Grafico_Axis_No_Fija();
         jPanel2.add(gdf.getGraficoAxis());
+        if(jComboRamaEntidad.getSelectedItem().toString() == "-") jPanel2.remove(gdf.getGraficoAxis());
 
-        
 
         repaint();
-        
 
     }
 
@@ -612,7 +609,6 @@ public class GUIdash extends javax.swing.JFrame {
             value = new String[jComboEstadoOrden.getItemCount()-1];
             for (int i = 0; i < jComboEstadoOrden.getItemCount()-1; i++) {
                 value[i] = jComboEstadoOrden.getItemAt(i+1);
-                
             }
 
             key = 2;
@@ -621,7 +617,6 @@ public class GUIdash extends javax.swing.JFrame {
             value = new String[jComboOrdenEntidad.getItemCount()-1];
             for (int i = 0; i < jComboOrdenEntidad.getItemCount()-1; i++) {
                 value[i] = jComboOrdenEntidad.getItemAt(i+1);
-                
             }
 
             key = 3;
@@ -629,7 +624,6 @@ public class GUIdash extends javax.swing.JFrame {
             value = new String[entidadesObligadas.length];
             for (int i = 0; i < entidadesObligadas.length; i++) {
                 value[i] = entidadesObligadas[i];
-                
             }
 
             key = 4;
@@ -637,8 +631,7 @@ public class GUIdash extends javax.swing.JFrame {
         else if (jRadioRamaEntidad.isSelected()) {
             value = new String[jComboRamaEntidad.getItemCount()-1];
             for (int i = 0; i < jComboRamaEntidad.getItemCount()-1; i++) {
-                value[i] = jComboRamaEntidad.getItemAt(i+1);
-                
+                value[i] = jComboRamaEntidad.getItemAt(i+1);                
             }
 
             key = 5;
@@ -654,13 +647,11 @@ public class GUIdash extends javax.swing.JFrame {
     public void mostrarGraficoBarras1() {
         estadistica.GraficoAxis1(value,key);
         jPanel2.add(estadistica.getGraficoAxis1());
-
     }
 
     public void mostrarGraficoArea1() {
         estadistica.GraficoArea1(value,key);
         jPanel2.add(estadistica.getGraficoArea1());
-
     }
 
     public void mostrarGraficoLineal() {
@@ -670,8 +661,7 @@ public class GUIdash extends javax.swing.JFrame {
 
     //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    public static void main(String args[]) {
-        
+    public static void main(String args[]) { 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
