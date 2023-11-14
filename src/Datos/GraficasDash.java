@@ -1,3 +1,13 @@
+
+/*
+ * Clase para realizar las graficas de las 5 consultas fijas y enviarlas al GUIdash
+ * 
+ * Autores: Jorge Eduardo Cobo Ocampo, Mario Ochoa Arango, Katherin Andrea Palacio
+ * 
+ * Fecha: 13/11/2023
+ */
+
+
 package Datos;
 
 import java.awt.Color;
@@ -13,7 +23,6 @@ import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.chart.title.TextTitle;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
-
 public class GraficasDash extends JPanel {
 
     ChartPanel chartPanel, chartPanel2, chartPanel3, chartPanel4, chartPanel5;
@@ -22,6 +31,7 @@ public class GraficasDash extends JPanel {
     // --------------------------------------------------------------------------------
     //Consulta fija
     public void GraficoTorta1(String value[], int key) {
+        
         LeerArchivoCSV cant = new LeerArchivoCSV();
         
         DefaultPieDataset data = new DefaultPieDataset();
@@ -61,6 +71,7 @@ public class GraficasDash extends JPanel {
                 }
                 
                 break;
+
         }
 
         chart = ChartFactory.createPieChart3D(
@@ -80,7 +91,6 @@ public class GraficasDash extends JPanel {
         chartPanel = new ChartPanel(chart, false);
         chartPanel.setBounds(5, 5, 460, 375);
 
-        //100 + 70
     }
 
     public ChartPanel getGraficoTorta1() {
@@ -239,7 +249,6 @@ public class GraficasDash extends JPanel {
 
     // --------------------------------------------------------------------------------
 
-
     // --------------------------------------------------------------------------------
     //Consulta fija
     
@@ -305,28 +314,6 @@ public class GraficasDash extends JPanel {
         return chartPanel4;
     }
 
-
     // --------------------------------------------------------------------------------
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

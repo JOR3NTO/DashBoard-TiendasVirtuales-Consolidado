@@ -1,3 +1,11 @@
+
+/*
+ * Clase para retornar valores de algunos comboBoxes para evitar hacer muchas validaciones
+ * 
+ * Autores: Jorge Eduardo Cobo Ocampo, Mario Ochoa Arango, Katherin Andrea Palacio
+ * Fecha: 13/11/2023
+ */
+
 package Datos;
 
 import java.util.HashMap;
@@ -33,14 +41,13 @@ public class getComboBoxes {
         return findMes.getOrDefault(mes, 0);
     }
 
-    public int getValueEstadoOrden(String estadoOrden){
-        Map<String, Integer> findAño = new HashMap<>();
-        findAño.put("Emitida", 1);
-        findAño.put("Cerrada", 2); 
-        findAño.put("Cancelada", 3);
-        findAño.put("-", 0);
-        return findAño.getOrDefault(estadoOrden, 0);
+    public int getValueDia(String dia) {
+        Map<String, Integer> findDia = new HashMap<>();
+        for (int i = 1; i <= 31; i++) {
+            findDia.put(String.valueOf(i), i);
+        }
     
+        return findDia.getOrDefault(dia, 0);
     }
 
     public int getDaysInMonth(String month) {

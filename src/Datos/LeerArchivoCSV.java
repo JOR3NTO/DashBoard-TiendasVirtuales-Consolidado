@@ -1,10 +1,17 @@
-package Datos;
 
+/*
+ * Clase para leer el csv y realizar las operaciones de las 5 consultas basicas
+ * 
+ * Autores: Jorge Eduardo Cobo Ocampo, Mario Ochoa Arango, Katherin Andrea Palacio
+ * 
+ * Fecha: 13/11/2023
+ */
+
+package Datos;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 public class LeerArchivoCSV {
 
@@ -21,6 +28,9 @@ public class LeerArchivoCSV {
     int ordenEntidad[] = new int[9];
     int ramaEntidad[] = new int[5];
     int postConflicto[] = new int[5];
+
+
+    int[] meses_año = new int[3];
 
     ArrayList<getDatos> inst = new ArrayList<>();
 
@@ -40,7 +50,6 @@ public class LeerArchivoCSV {
             int fila = 1;
             try {
                 while ((linea = br.readLine()) != null) {
-                    //System.out.println(fila + " - " + linea);
                     tokens = linea.split(",");
                     inst.add(new getDatos(
                             Integer.parseInt(tokens[0]), 
@@ -79,6 +88,7 @@ public class LeerArchivoCSV {
         año[0] = 0;
         año[1] = 0;
         año[2] = 0;
+
 
         for (int i = 0; i < inst.size(); i++) {
             getDatos obj = inst.get(i);
@@ -187,13 +197,8 @@ public class LeerArchivoCSV {
 
     //-------------------------------------------------------------------------------------------
 
-
-    //Consulta GIGANTEEEEEE
-    //-------------------------------------------------------------------------------------------------------
-   
-
-
-
+    //-------------------------------------------------------------------------------------------------------------
+    //Metodo solo para verificar que los datos si se leen
     public void listar(){
         for (int i = 0; i < inst.size(); i++) {
             getDatos obj = inst.get(i);
