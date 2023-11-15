@@ -11,6 +11,7 @@ package GUI;
 import Datos.GraficasDash;
 import Datos.GraficasDashFormadas;
 import Datos.LeerArchivoCSV;
+import Datos.Nosotros;
 import Datos.getComboBoxes;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -75,6 +76,7 @@ public class GUIdash extends javax.swing.JFrame {
         jComboOrdenEntidad = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jComboRamaEntidad = new javax.swing.JComboBox<>();
+        jbAcercaDe = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
 
@@ -231,6 +233,16 @@ public class GUIdash extends javax.swing.JFrame {
             }
         });
 
+        jbAcercaDe.setFont(new java.awt.Font("Ink Free", 3, 20)); // NOI18N
+        jbAcercaDe.setText("Acerca de ...");
+        jbAcercaDe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbAcercaDe.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jbAcercaDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAcercaDeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -272,7 +284,9 @@ public class GUIdash extends javax.swing.JFrame {
                             .addComponent(jComboDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addComponent(jbAcercaDe)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -334,7 +348,9 @@ public class GUIdash extends javax.swing.JFrame {
                     .addComponent(jComboRamaEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboOrdenEntidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
-                .addComponent(jbGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbGenerar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbAcercaDe, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62))
         );
 
@@ -397,6 +413,10 @@ public class GUIdash extends javax.swing.JFrame {
     private void jComboDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboDiaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboDiaActionPerformed
+
+    private void jbAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAcercaDeActionPerformed
+       Nosotros ns = new Nosotros(this);
+    }//GEN-LAST:event_jbAcercaDeActionPerformed
 
     private void jComboMesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboMesActionPerformed
             String month = jComboMes.getSelectedItem().toString();
@@ -718,6 +738,7 @@ public class GUIdash extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioTerritorialesNacionales;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton jbAcercaDe;
     private javax.swing.JButton jbGenerar;
     // End of variables declaration//GEN-END:variables
 }
